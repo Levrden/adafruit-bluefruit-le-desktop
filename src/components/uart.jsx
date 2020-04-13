@@ -4,6 +4,8 @@ import ipc from 'ipc';
 import DeviceView from './deviceview.js';
 
 
+
+
 export default class UART extends React.Component {
   constructor() {
     super();
@@ -21,7 +23,7 @@ export default class UART extends React.Component {
 
   send() {
     let data = $('#tx').val();
-    this.appendRx('Sent: ' + data);
+    this.appendRx('Sent: ' + data + "MIAW");
     ipc.send('uartTx', data);
   }
 
@@ -43,7 +45,7 @@ export default class UART extends React.Component {
     // Render main UART view.
     return (
       <DeviceView header='UART' index={this.props.params.index}>
-        <p>Send and receive data with a BLE UART device.  Use the bleuart_cmdmode or bleuart_datamode examples
+        <p>Send and receive data with a BLE UART device. Use the bleuart_cmdmode or bleuart_datamode examples
         in the Bluefruit LE Arduino library to send & receive from the device.</p>
         <form>
           <div className='form-group'>
